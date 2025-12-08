@@ -298,7 +298,7 @@ section {
     height: 350px;
     border-radius: 50%; /* Rende il contenitore circolare */
     background-color: var(--color-secondary); /* Sfondo placeholder (sarà riempito dall'immagine) */
-    background-image: url('foto currciculum marco mariani.png'); /* Sostituisci con l'URL dell'immagine reale */
+    background-image: url('images/foto currciculum marco mariani.png'); /* Sostituisci con l'URL dell'immagine reale */
     background-size: cover;
     background-position: center;
     box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);

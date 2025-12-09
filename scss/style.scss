@@ -1,0 +1,239 @@
+// SCSS - style.scss
+
+// ======================================================
+// 1. VARIABILI GLOBALI (Design System)
+// ======================================================
+
+// Variabili per i colori. Uso i colori di Bootstrap per coerenza e ne aggiungo di custom.
+$primary-color: #007bff; // Blu professionale scelto per il colore Primario (richiamo a Bootstrap primary)
+$accent-color: #ff8c00; // Arancione brillante per l'Accento e le CTA (Call To Action)
+$text-color: #333; // Colore del testo standard per una lettura ottimale
+$light-bg: #f8f9fa; // Sfondo chiaro, minimal
+
+// Variabile per il font principale (importato da Google Fonts nell'HTML)
+$body-font: 'Inter', sans-serif;
+
+// Variabile per il breakpoint CSS Grid (per la griglia portfolio)
+$grid-breakpoint: 768px; // Utilizzo il breakpoint "md" di Bootstrap per coerenza
+
+// ======================================================
+// 2. STILI GLOBALI E RESET
+// ======================================================
+
+// Regola per il corpo della pagina (body)
+body {
+    // Uso della variabile font definita sopra.
+    font-family: $body-font;
+    color: $text-color;
+    // Imposto un padding top per compensare la navbar fissa (sticky)
+    // 56px è l'altezza standard della navbar di Bootstrap
+    padding-top: 56px; 
+    background-color: white; 
+}
+
+// Stile per i link e le CTA (Call To Action)
+a {
+    // Colore del link basato sul colore Primario
+    color: $primary-color;
+    // Rimuovo la sottolineatura standard per un look più pulito
+    text-decoration: none; 
+
+    // Regola di nesting: stile al passaggio del mouse (hover)
+    &:hover {
+        // Leggera variazione di colore al passaggio del mouse
+        color: darken($primary-color, 10%); 
+        // Aggiungo una sottolineatura solo su hover per migliorare l'usabilità
+        text-decoration: underline;
+    }
+}
+
+// Stile per tutti i titoli (h1, h2, ecc.)
+h1, h2, h3 {
+    // Assicura che i titoli siano ben visibili
+    font-weight: 700; 
+    color: $primary-color; 
+}
+
+// Stile personalizzato per i bottoni (CTA)
+.btn-primary-custom {
+    // Colore di sfondo basato sul colore Accento
+    background-color: $accent-color;
+    // Colore del testo chiaro (bianco) per il contrasto
+    color: white; 
+    // Rimuovo il bordo di default per uniformità
+    border: none; 
+    // Regola importante per non alterare il colore al click/focus
+    --bs-btn-bg: #{$accent-color}; 
+    --bs-btn-border-color: #{$accent-color};
+    
+    // Regola di nesting: stile al passaggio del mouse (hover)
+    &:hover {
+        // Oscuro leggermente il colore Accento per il feedback visivo
+        background-color: darken($accent-color, 10%); 
+        // Uso le variabili di Bootstrap per assicurare coerenza
+        --bs-btn-hover-bg: #{darken($accent-color, 10%)};
+        --bs-btn-hover-border-color: #{darken($accent-color, 10%)};
+    }
+}
+
+
+// ======================================================
+// 3. NAVBAR (Stili specifici)
+// ======================================================
+
+// Stile per la navbar. Uso il selettore di Bootstrap `navbar-expand-lg` per lo sfondo.
+.navbar-expand-lg {
+    // Rendo lo sfondo della navbar completamente bianco e leggermente trasparente
+    background-color: rgba(255, 255, 255, 0.95) !important; 
+    // Aggiungo un'ombra sottile per farla staccare dal body (effetto "sticky")
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+}
+
+// Stile per i link nella navbar
+.nav-link {
+    color: $text-color;
+    // Aumento leggermente il font weight per dare enfasi
+    font-weight: 500; 
+
+    // Regola di nesting: al passaggio del mouse e per la pagina attiva
+    &:hover, &.active {
+        // Colore Primario per evidenziare il link attivo/selezionato
+        color: $primary-color !important;
+    }
+}
+
+// ======================================================
+// 4. HOME PAGE (Stili specifici per le sezioni)
+// ======================================================
+
+// Stile per la Hero Section
+.hero-section {
+    // Uso d-flex, una classe Bootstrap, per impostare Flexbox
+    // Lo giustifico per il contenuto, centro gli elementi
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    // Aggiungo padding in alto e in basso per spazio verticale
+    padding: 60px 0;
+}
+
+// Stile per l'immagine del profilo nella Hero
+.profile-img {
+    // Assicuro che l'immagine sia circolare (esagonale se si usa Bootstrap)
+    border-radius: 50%; 
+    // Aggiungo un bordo per staccarla visivamente
+    border: 5px solid $primary-color; 
+    // Aggiusto la dimensione massima
+    max-width: 250px;
+    height: auto;
+    // Rendo il bordo della foto colorato
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+}
+
+// ======================================================
+// 5. PORTFOLIO PAGE (CSS Grid)
+// ======================================================
+
+// Contenitore principale della griglia per i progetti
+.projects-grid {
+    // **Uso di CSS Grid (Requisito Tecnico)**
+    // Imposto il display a grid
+    display: grid; 
+    // Definisco le colonne della griglia
+    // Di default, su mobile (schermi piccoli), avremo una sola colonna
+    grid-template-columns: 1fr; 
+    // Spaziatura tra le righe e le colonne
+    gap: 30px; 
+    padding: 30px 0;
+
+    // Media Query con nesting: applica le regole solo su schermi larghi (desktop)
+    @media (min-width: $grid-breakpoint) {
+        // Su schermi più grandi, passo a tre colonne di larghezza uguale
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    // Stile per la singola card del progetto (elemento figlio della griglia)
+    .project-card {
+        // Bordo leggero per definire i limiti della card
+        border: 1px solid #ddd; 
+        // Angoli arrotondati per un look più moderno
+        border-radius: 8px; 
+        // Leggera ombra per un effetto 3D
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+        // Transizione per l'effetto hover
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+        // Regola di nesting: effetto al passaggio del mouse (hover)
+        &:hover {
+            // Sollevo leggermente la card
+            transform: translateY(-5px); 
+            // Aumento l'ombra per evidenziarla
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        // Stile per l'immagine del progetto
+        img {
+            // L'immagine deve occupare il 100% della larghezza della card
+            width: 100%; 
+            // Rende solo gli angoli superiori arrotondati (perché l'immagine è in cima)
+            border-top-left-radius: 8px; 
+            border-top-right-radius: 8px;
+            // Assicura che l'immagine copra l'area senza deformarsi
+            object-fit: cover; 
+            // Altezza fissa per uniformità nella griglia
+            height: 200px; 
+        }
+
+        // Stile per il corpo del testo della card
+        .card-body {
+            padding: 15px;
+        }
+    }
+}
+
+// ======================================================
+// 6. CV PAGE (Minimal Style)
+// ======================================================
+
+// Stile per rendere il CV ordinato, usando le classi di spaziatura di Bootstrap
+.cv-section {
+    // Uso il colore Primario per i divisori
+    border-bottom: 2px solid $primary-color; 
+    // Spazio sotto ogni sezione
+    padding-bottom: 15px; 
+    margin-bottom: 30px;
+}
+
+// Stile per i titoli delle esperienze/formazione nel CV
+.cv-item-title {
+    // Grassetto per evidenziare il ruolo/corso
+    font-weight: 700; 
+    // Margine inferiore per separare dal testo
+    margin-bottom: 5px; 
+    color: $text-color; 
+}
+
+// Stile per le date nel CV
+.cv-item-date {
+    // Colore Primario per evidenziare la timeline
+    color: $primary-color; 
+    // Corsivo per distinzione
+    font-style: italic; 
+}
+
+// ======================================================
+// 7. CONTATTI PAGE (Stili per il Form)
+// ======================================================
+
+// Stile per l'area del form
+.contact-form-container {
+    // Massimizza la larghezza del form su desktop per non farlo allungare troppo
+    max-width: 600px; 
+    // Centra il form al centro della pagina
+    margin: 30px auto; 
+    // Leggera imbottitura e ombra per distinguerlo
+    padding: 30px; 
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}

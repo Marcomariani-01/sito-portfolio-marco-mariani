@@ -1,0 +1,120 @@
+body {
+  font-family: "Inter", sans-serif;
+  color: #333;
+  padding-top: 56px;
+  background-color: white;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(0, 98.4, 204);
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #007bff;
+}
+
+.btn-primary-custom {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  --bs-btn-bg: #ff8c00;
+  --bs-btn-border-color: #ff8c00;
+}
+.btn-primary-custom:hover {
+  background-color: #cc7000;
+  --bs-btn-hover-bg: #cc7000;
+  --bs-btn-hover-border-color: #cc7000;
+}
+
+.navbar-expand-lg {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+  color: #333;
+  font-weight: 500;
+}
+.nav-link:hover, .nav-link.active {
+  color: #007bff !important;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 5px solid #007bff;
+  max-width: 250px;
+  height: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 30px 0;
+}
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.projects-grid .project-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.projects-grid .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.projects-grid .project-card img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+}
+.projects-grid .project-card .card-body {
+  padding: 15px;
+}
+
+.cv-section {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.cv-item-title {
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.cv-item-date {
+  color: #007bff;
+  font-style: italic;
+}
+
+.contact-form-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}/*# sourceMappingURL=style.css.map */

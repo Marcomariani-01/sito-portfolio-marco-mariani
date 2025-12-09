@@ -3,223 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marco Mariani | UX/UI Designer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Portfolio di Marco Mariani, Junior UX/UI Designer. Scopri i miei progetti e competenze in design e sviluppo web.">
+    <title>Portfolio Marco Mariani - Junior UX/UI Designer</title>
+    
+    <meta property="og:title" content="Portfolio Marco Mariani - Junior UX/UI Designer">
+    <meta property="og:description" content="Chi sono e in cosa eccello nel mondo del design e dello sviluppo web.">
+    <meta property="og:image" content="https://placehold.co/1200x630/007bff/ffffff.png?text=Marco+Mariani+UX/UI"> <meta property="og:url" content="https://tuodominio.it/index.html">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="main-header">
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
         <div class="container">
-            <a href="#hero" class="logo">
-                <img src="images/logo.png" alt="Logo Marco Mariani UX/UI Designer" class="logo-image">
-            </a>
+            <a class="navbar-brand fw-bold" href="index.html">Marco Mariani</a>
             
-            <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">
-                <span class="sr-only">Apri menù</span>
-                <i class="fas fa-bars"></i> </button>
-
-            <nav id="main-nav" class="main-nav">
-                <ul>
-                    <li><a href="#about">Chi sono</a></li>
-                    <li><a href="#projects">Progetti</a></li>
-                    <li><a href="#contact" class="cta-link">Contatti</a></li> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">Curriculum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section id="hero" class="hero-section">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Ciao, sono Marco Mariani, <span class="highlight">UX/UI Designer.</span></h1>
-                <p>Trasformo idee complesse in interfacce utente intuitive e coinvolgenti, focalizzandomi sull'esperienza dell'utente. Pronto a dare forma alla tua prossima sfida digitale.</p>
-                <a href="#contact" class="btn btn-primary">Contattami ora</a>
-            </div>
-            <div class="hero-image-container">
-                <div class="circular-image" aria-label="Foto di Marco Mariani">
-                    
-                </div>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>Chi sono</h2>
-            <div class="about-text-content">
-                <p>Sono Marco, UX/UI Designer con background in psicologia e un forte interesse per il design di prodotti digitali orientati al <strong>benessere, alla produttività e alla formazione online.</strong><br><br>
-
-Mi occupo di progettare esperienze <strong>chiare, funzionali e centrate sull’utente</strong>, con particolare attenzione alla ricerca, alla definizione dei flussi, alla prototipazione e alla validazione delle soluzioni. Il mio obiettivo è contribuire allo sviluppo di prodotti che riducano la complessità, facilitino l’accesso ai servizi digitali e generino un impatto concreto sulla vita delle persone.
-
-In precedenza ho lavorato in <strong>ambito editoriale digitale</strong>, occupandomi di contenuti, comunicazione e gestione dei social.<br><br> Questa esperienza mi ha dato una <strong>prospettiva trasversale</strong> sul ciclo di vita dei prodotti e sul modo in cui le persone interagiscono con le piattaforme online.</p>
-                <br><p>Oggi sto consolidando le mie competenze nel design attraverso formazione continua e progetti personali, con l’obiettivo di crescere in un team che valorizzi il lavoro approfondito, la collaborazione e l’attenzione ai dettagli.
-
-Sono particolarmente interessato a realtà che sviluppano prodotti digitali di qualità e che investono nel <strong>miglioramento costante dell’esperienza utente</strong>.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2>Progetti</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        
-                    </div>
-                    <h3>Progetto App Mobile</h3>
-                    <p>Ricerca e design di un'applicazione mobile per la gestione delle finanze personali.</p>
-                    <a href="#" class="btn btn-secondary">Scopri di più</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        
-
-[Image of a placeholder website UI]
-
-                    </div>
-                    <h3>Restyling Sito Web</h3>
-                    <p>Miglioramento dell'usabilità e dell'interfaccia di un e-commerce B2B.</p>
-                    <a href="#" class="btn btn-secondary">Scopri di più</a>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        
-                    </div>
-                    <h3>Dashboard Analytics</h3>
-                    <p>Creazione di un sistema di design per una dashboard complessa di analisi dati.</p>
-                    <a href="#" class="btn btn-secondary">Scopri di più</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        
-                    </div>
-                    <h3>Design System SaaS</h3>
-                    <p>Definizione di un design system completo per un prodotto Software as a Service.</p>
-                    <a href="#" class="btn btn-secondary">Scopri di più</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        
-
-[Image of a wireframe or user flow diagram]
-
-                    </div>
-                    <h3>UX Research & Wireframing</h3>
-                    <p>Fase di ricerca e prototipazione per un nuovo servizio di delivery.</p>
-                    <a href="#" class="btn btn-secondary">Scopri di più</a>
-                </div>
-
-                 <div class="project-card">
-                    <div class="project-image-placeholder">
-                        
-
-[Image of a stylized mobile phone with a modern app screen]
-
-                    </div>
-                    <h3>Applicazione Ed-Tech</h3>
-                    <p>Sviluppo dell'interfaccia utente per una piattaforma di apprendimento online interattiva.</p>
-                    <a href="#" class="btn btn-secondary">Scopri di più</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contatti</h2>
-            <p class="contact-intro">Sono sempre aperto a nuove sfide e collaborazioni interessanti. Parliamone!</p>
+    <main class="container">
+        
+        <header class="row hero-section py-5 my-5">
             
-            <div class="contact-grid">
+            <div class="col-lg-7 text-lg-start text-center mb-4 mb-lg-0">
+                <h1 class="display-4 fw-bold mb-3">Marco Mariani</h1>
+                <p class="lead text-primary mb-4">Junior UX/UI Designer & HTML/CSS Enthusiast</p>
                 
-                <div class="contact-form-container">
-                    <form action="#" method="POST" class="contact-form">
-                        
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Nome</label>
-                            <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
-                        </div>
+                <p class="fs-5">
+                    Ciao! Sono Marco, un **Junior UX/UI Designer** con una solida base in **HTML, CSS e Bootstrap**. 
+                    Eccello nel trasformare idee complesse in interfacce utente minimali, pulite e, soprattutto, accessibili. 
+                    Il mio obiettivo è unire l'estetica del design alla robustezza dello sviluppo frontend.
+                </p>
+                
+                <a href="portfolio.html" class="btn btn-primary-custom btn-lg me-3 mt-3">Guarda i Miei Lavori</a>
+                <a href="cv.html" class="btn btn-outline-primary btn-lg mt-3">Scarica il CV</a>
+            </div>
 
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" id="email" name="email" placeholder="La tua email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="sr-only">Oggetto</label>
-                            <input type="text" id="subject" name="subject" placeholder="Oggetto del messaggio" required>
-                        </div>
+            <div class="col-lg-5 text-center">
+                <img src="https://source.unsplash.com/random/400x400/?portrait,man,professional" alt="Foto profilo di Marco Mariani" class="img-fluid profile-img">
+            </div>
+        </header>
 
-                        <div class="form-group">
-                            <label for="message" class="sr-only">Messaggio</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Il tuo messaggio..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Invia Messaggio</button>
-                    </form>
+        <hr> <section class="py-5" id="skills">
+            <h2 class="text-center mb-5">🛠️ Le Mie Competenze</h2>
+            
+            <div class="row text-center">
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <i class="fab fa-html5 fa-3x text-primary d-block mb-2"></i>
+                    <h5 class="fw-bold">HTML5</h5>
+                    <p class="text-muted">Semantica & Accessibilità</p>
                 </div>
-                
-                <div class="contact-links-container">
-                    <p>Puoi anche trovarmi qui:</p>
-                    <div class="contact-links">
-                        <a href="mailto:marco.mariani@email.com" class="contact-item">
-                            <i class="fas fa-envelope"></i> 
-                            <span>Email Diretta</span>
-                        </a>
-                        
-                        <a href="https://linkedin.com/in/marcomariani" target="_blank" class="contact-item">
-                            <i class="fab fa-linkedin"></i> 
-                            <span>LinkedIn</span>
-                        </a>
-                        
-                        <a href="https://github.com/marcomariani" target="_blank" class="contact-item">
-                            <i class="fab fa-github"></i> 
-                            <span>GitHub</span>
-                        </a>
-                    </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <i class="fab fa-css3-alt fa-3x text-primary d-block mb-2"></i>
+                    <h5 class="fw-bold">CSS3 & SASS</h5>
+                    <p class="text-muted">Layout Flexbox & Grid</p>
                 </div>
-                
-            </div> </div>
-    </section>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <i class="fab fa-bootstrap fa-3x text-primary d-block mb-2"></i>
+                    <h5 class="fw-bold">Bootstrap 5</h5>
+                    <p class="text-muted">Sviluppo Rapido & Responsive</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <i class="fas fa-drafting-compass fa-3x text-primary d-block mb-2"></i>
+                    <h5 class="fw-bold">UX/UI Design</h5>
+                    <p class="text-muted">Prototipazione & Wireframing</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <i class="fas fa-bezier-curve fa-3x text-primary d-block mb-2"></i>
+                    <h5 class="fw-bold">Figma</h5>
+                    <p class="text-muted">Design System</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <i class="fas fa-code fa-3x text-primary d-block mb-2"></i>
+                    <h5 class="fw-bold">Git & GitHub</h5>
+                    <p class="text-muted">Versionamento Codice</p>
+                </div>
+            </div>
+        </section>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Marco Mariani | UX/UI Designer Portfolio. Tutti i diritti riservati.</p>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </main>
+
+    <footer class="footer mt-5 py-4 bg-light">
+        <div class="container text-center">
+            <a href="https://linkedin.com/in/marcomariani" target="_blank" class="mx-2 fs-4 text-primary" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/marcomariani" target="_blank" class="mx-2 fs-4 text-primary" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="portfolio.html" class="mx-2 fs-4 text-primary" aria-label="Guarda i Lavori"><i class="fas fa-briefcase"></i></a>
+            
+            <p class="text-muted mt-3 mb-0">&copy; 2025 Marco Mariani. Tutti i diritti riservati. Sviluppato per Esame Finale HTML/CSS.</p>
         </div>
     </footer>
 
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.getElementById('main-nav');
-        const navLinks = mainNav.querySelectorAll('a');
-
-        // Toggle della visibilità del menù al click del bottone hamburger
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            mainNav.classList.toggle('active'); // Aggiunge/rimuove la classe 'active' per mostrare/nascondere il menù
-            document.body.classList.toggle('no-scroll'); // Blocca lo scroll quando il menù è aperto (utile su mobile)
-        });
-
-        // Chiude il menù al click su un link (utile su mobile/tablet)
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    document.body.classList.remove('no-scroll');
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

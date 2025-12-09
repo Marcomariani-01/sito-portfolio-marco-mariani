@@ -153,7 +153,7 @@ h2 {
 /* NUOVA REGOLA: Stile specifico per l'immagine del logo */
 .logo-image {
     /* Dimensione desiderata per il logo nell'header */
-    height: 100px; /* Altezza del logo. Modifica questo valore! */
+    height: 50px; /* Altezza del logo. Modifica questo valore! */
     width: auto; /* Mantiene le proporzioni originali */
     display: block; /* Assicura che l'immagine sia trattata come blocco */
     transition: opacity 0.3s ease; /* Transizione per l'hover */

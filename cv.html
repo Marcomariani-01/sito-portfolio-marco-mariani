@@ -3,125 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Curriculum Vitae di Marco Mariani, Junior UX/UI Designer.">
-    <title>Curriculum Vitae - Marco Mariani</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>CV Marco Mariani</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ9wH4D/wM4pBfB6g3F5eB4a3e3/3R4d/W0zT2K6z3v4B5B4j5J8r7rF7E7C7C" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-
-    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+<body id="cv-page">
+    <nav id="mainNavbar" class="navbar navbar-expand-lg sticky-top p-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Marco Mariani</a>
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-gem text-accent-orange"></i> Marco Mariani
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="cv.html">Curriculum</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#hero">Home Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-accent ms-lg-3" href="#" onclick="window.print();">Stampa/Salva PDF</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container py-5">
-        
-        <header class="text-center mb-5">
-            <h1 class="display-4 fw-bold text-primary">Curriculum Vitae</h1>
-            <h2 class="lead mb-3">Marco Mariani - Junior UX/UI Designer</h2>
-            <address>
-                Via Roma, 1 - 22060 Mariano Comense (CO) | <a href="mailto:marco.mariani@email.it">marco.mariani@email.it</a> | +39 333 1234567
-            </address>
-            <hr class="mt-4">
-        </header>
+    <main class="py-5">
+        <div class="container cv-container bg-white p-4 p-md-5 shadow-lg">
+            <header class="text-center mb-5 border-bottom pb-3">
+                <h1 class="display-5 fw-bold text-primary-blue">MARCO MARIANI</h1>
+                <p class="lead text-secondary">Junior UX/UI Designer</p>
+                <p class="mb-1">
+                    <i class="fa-solid fa-location-dot me-2 text-accent-orange"></i> Milano, Italia | 
+                    <i class="fa-solid fa-envelope me-2 text-accent-orange"></i> marco.mariani@email.com | 
+                    <i class="fa-solid fa-phone me-2 text-accent-orange"></i> +39 333 1234567
+                </p>
+                <p>
+                    <a href="https://www.linkedin.com/in/marcomariani" target="_blank" class="text-dark me-3"><i class="fa-brands fa-linkedin me-1"></i> LinkedIn</a> |
+                    <a href="https://www.behance.net/marcomariani" target="_blank" class="text-dark"><i class="fa-brands fa-square-behance me-1"></i> Behance</a>
+                </p>
+            </header>
 
-        <section class="cv-section" aria-labelledby="profilo-heading">
-            <h3 id="profilo-heading" class="fw-bold text-uppercase mb-3">Profilo</h3>
-            <p>
-                Designer orientato al risultato con competenza nel ciclo di vita del prodotto, dalla ricerca alla prototipazione. Solida base tecnica in **HTML, CSS (SASS) e Bootstrap**, maturata durante un intenso corso di formazione. Cerco un'opportunità per applicare le mie competenze in un ambiente dinamico e sfidante.
-            </p>
-        </section>
+            <section id="profilo" class="mb-4">
+                <h3><i class="fa-solid fa-user-tie me-2"></i> Profilo Professionale</h3>
+                <p>Neodiplomato con solide basi in HTML semantico, CSS3 (incluso SCSS) e framework Bootstrap 5. Passione per la creazione di interfacce utente intuitive e accessibili. Ricerca un'opportunità come Junior Designer per applicare i principi di UX/UI in contesti di sviluppo front-end.</p>
+            </section>
 
-        <section class="cv-section" aria-labelledby="esperienze-heading">
-            <h3 id="esperienze-heading" class="fw-bold text-uppercase mb-3">Esperienza Professionale</h3>
-            
-            <article class="mb-4">
-                <dl>
-                    <dt class="cv-item-title">Collaboratore Tecnico</dt>
-                    <dd class="cv-item-date">Gennaio 2022 – Dicembre 2023</dd>
-                    <dd class="text-muted">Azienda Xyz, Milano</dd>
-                    <ul class="list-unstyled">
-                        <li>- Supporto operativo alla gestione dei contenuti del sito web aziendale.</li>
-                        <li>- Assistenza nella risoluzione di bug minori in ambiente HTML/CSS.</li>
-                    </ul>
-                </dl>
-            </article>
-            
-            <article class="mb-4">
-                <dl>
-                    <dt class="cv-item-title">Tirocinante Amministrativo</dt>
-                    <dd class="cv-item-date">Luglio 2021 – Dicembre 2021</dd>
-                    <dd class="text-muted">Studio Commerciale Alfa, Como</dd>
-                </dl>
-            </article>
-        </section>
+            <section id="esperienza" class="mb-4">
+                <h3><i class="fa-solid fa-briefcase me-2"></i> Esperienza Lavorativa</h3>
+                
+                <article class="cv-item">
+                    <div class="cv-date">
+                        Ottobre 2024 - Presente
+                    </div>
+                    <div class="cv-content">
+                        <h4 class="fw-bold mb-1">Stagista Web Designer Junior</h4>
+                        <p class="text-muted mb-2">Web Solutions S.r.l. - Milano</p>
+                        <ul>
+                            <li>Supporto nello sviluppo front-end (HTML/CSS) di siti web responsive.</li>
+                            <li>Creazione di wireframe e prototipi per nuove funzionalità in Figma.</li>
+                            <li>Manutenzione e aggiornamento del Design System interno.</li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="cv-item">
+                    <div class="cv-date">
+                        Giugno 2023 - Settembre 2024
+                    </div>
+                    <div class="cv-content">
+                        <h4 class="fw-bold mb-1">Assistente Marketing Digitale</h4>
+                        <p class="text-muted mb-2">Creative Hub Agency - Roma</p>
+                        <ul>
+                            <li>Gestione e analisi delle performance delle campagne social media.</li>
+                            <li>Redazione di contenuti ottimizzati per il web (SEO base).</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
 
-        <section class="cv-section" aria-labelledby="formazione-heading">
-            <h3 id="formazione-heading" class="fw-bold text-uppercase mb-3">Formazione</h3>
-            
-            <article class="mb-4">
-                <dl>
-                    <dt class="cv-item-title">Corso Professionale in HTML/CSS e Web Design</dt>
-                    <dd class="cv-item-date">Settembre 2024 – Febbraio 2025</dd>
-                    <dd class="text-muted">Accademia Web IT (Certificato Finale)</dd>
-                    <ul class="list-unstyled">
-                        <li>- Focus su Responsive Design, Semantica, SASS, Flexbox, CSS Grid e Bootstrap.</li>
-                    </ul>
-                </dl>
-            </article>
-            
-            <article class="mb-4">
-                <dl>
-                    <dt class="cv-item-title">Laurea Triennale in Comunicazione Digitale</dt>
-                    <dd class="cv-item-date">2018 – 2021</dd>
-                    <dd class="text-muted">Università degli Studi di Milano</dd>
-                </dl>
-            </article>
-        </section>
+            <section id="formazione" class="mb-4">
+                <h3><i class="fa-solid fa-graduation-cap me-2"></i> Istruzione e Formazione</h3>
 
-        <section class="cv-section" aria-labelledby="competenze-heading">
-            <h3 id="competenze-heading" class="fw-bold text-uppercase mb-3">Competenze Tecniche</h3>
+                <article class="cv-item">
+                    <div class="cv-date">
+                        Gennaio 2025
+                    </div>
+                    <div class="cv-content">
+                        <h4 class="fw-bold mb-1">Corso Certificato HTML5, CSS3, SCSS & Bootstrap 5</h4>
+                        <p class="text-muted mb-2">Accademia Frontend - Online</p>
+                        <p>Focus su web semantico, layout responsive (Flexbox e Grid) e architettura CSS modulare con SASS.</p>
+                    </div>
+                </article>
+
+                <article class="cv-item">
+                    <div class="cv-date">
+                        2018 - 2023
+                    </div>
+                    <div class="cv-content">
+                        <h4 class="fw-bold mb-1">Laurea Triennale in Comunicazione Digitale</h4>
+                        <p class="text-muted mb-2">Università degli Studi di Roma "La Sapienza"</p>
+                        <p>Tesi su "Accessibilità e Design Inclusivo nel Web".</p>
+                    </div>
+                </article>
+            </section>
             
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">**Markup & Stile:** HTML5 (Semantico), CSS3, SASS, Bootstrap 5</li>
-                        <li class="list-group-item">**Design:** Figma, Adobe XD (livello base)</li>
-                        <li class="list-group-item">**Layout:** CSS Grid, Flexbox (Responsive Design)</li>
-                    </ul>
+            <section id="competenze">
+                <h3><i class="fa-solid fa-code me-2"></i> Competenze Tecniche</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="fw-bold fs-5 text-dark">Frontend & Design</h4>
+                        <ul>
+                            <li>HTML Semantico, CSS3, SCSS</li>
+                            <li>Bootstrap 5, Flexbox, CSS Grid</li>
+                            <li>Principi di Mobile-First e Responsive Design</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="fw-bold fs-5 text-dark">Strumenti & Linguaggi</h4>
+                        <ul>
+                            <li>Figma (Prototipazione, Wireframing)</li>
+                            <li>Adobe XD, Photoshop (base)</li>
+                            <li>Git/GitHub (Controllo Versione)</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">**Versionamento:** Git, GitHub</li>
-                        <li class="list-group-item">**Metodologie:** Atomic Design, Mobile-First</li>
-                        <li class="list-group-item">**Lingue:** Italiano (Madrelingua), Inglese (B2)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
+        </div>
     </main>
 
-    <footer class="footer mt-5 py-4 bg-light">
-        <div class="container text-center">
-            <p class="text-muted mb-0">&copy; 2025 Marco Mariani. Curriculum Vitae.</p>
-        </div>
+    <footer class="text-center py-3">
+        <small>Curriculum Vitae di Marco Mariani.</small>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

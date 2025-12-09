@@ -1,247 +1,153 @@
-// SCSS - style.scss
+// ===============================================
+// FILE SCSS PERSONALIZZATO: style.scss
+// Compilato in style.css e collegato dopo Bootstrap
+// ===============================================
 
-// ======================================================
-// 1. VARIABILI GLOBALI (Design System)
-// ======================================================
+// 1. DEFINIZIONE DEL DESIGN SYSTEM (VARIABILI SASS)
+// --------------------------------------------------
 
-// Variabili per i colori. Uso i colori di Bootstrap per coerenza e ne aggiungo di custom.
-$primary-color: #007bff; // Blu professionale scelto per il colore Primario (richiamo a Bootstrap primary)
-$accent-color: #ff8c00; // Arancione brillante per l'Accento e le CTA (Call To Action)
-$text-color: #333; // Colore del testo standard per una lettura ottimale
-$light-bg: #f8f9fa; // Sfondo chiaro, minimal
+// Definizione della palette di colori e dei font
+$primary-blue: #004c97; // Tonalità professionale di Blu (Primario)
+$accent-orange: #ff5e14; // Arancione (Accento/CTA)
+$text-dark: #333333; // Colore testo scuro
+$text-light: #f8f9fa; // Colore testo chiaro
 
-// Variabile per il font principale (importato da Google Fonts nell'HTML)
-$body-font: 'Inter', sans-serif;
+// Font per l'intero body. Bootstrap eredita dal body.
+$font-family-serif: 'Lora', serif;
 
-// Variabile per il breakpoint CSS Grid (per la griglia portfolio)
-$grid-breakpoint: 768px; // Utilizzo il breakpoint "md" di Bootstrap per coerenza
+// 2. CUSTOMIZZAZIONE DI BOOTSTRAP (Override delle variabili)
+// -----------------------------------------------------------
+// Sovrascriviamo le variabili di default di Bootstrap per applicare il nostro Design System.
+// Questo deve essere fatto PRIMA di importare il resto di Bootstrap (se lo volessimo importare con SASS).
+// In questo caso usiamo CDN, quindi queste variabili verranno usate SOLO nelle nostre classi custom.
 
-// ======================================================
-// 2. STILI GLOBALI E RESET
-// ======================================================
-
-// Regola per il corpo della pagina (body)
 body {
-    // Uso della variabile font definita sopra.
-    font-family: $body-font;
-    color: $text-color;
-    // Imposto un padding top per compensare la navbar fissa (sticky)
-    // 56px è l'altezza standard della navbar di Bootstrap
-    padding-top: 56px; 
-    background-color: white; 
+    // Uso della variabile SASS per definire il font, come richiesto dal design system.
+    font-family: $font-family-serif;
+    // Impostazione del colore del testo globale
+    color: $text-dark;
 }
 
-// Stile per i link e le CTA (Call To Action)
+// Stile personalizzato per i link e le CTA (Call to Action)
 a {
-    // Colore del link basato sul colore Primario
-    color: $primary-color;
-    // Rimuovo la sottolineatura standard per un look più pulito
-    text-decoration: none; 
-
-    // Regola di nesting: stile al passaggio del mouse (hover)
+    // Uso del colore Primario Blu per tutti i link non bottone.
+    color: $primary-blue;
     &:hover {
-        // Variazione di colore al passaggio del mouse
-        color: darken($primary-color, 40%); 
-        // Aggiungo una sottolineatura solo su hover per migliorare l'usabilità
-        text-decoration: underline;
+        // Leggera variazione al passaggio del mouse per feedback utente.
+        color: darken($primary-blue, 10%);
     }
 }
 
-// Stile per tutti i titoli (h1, h2, ecc.)
-h1, h2, h3 {
-    // Assicura che i titoli siano ben visibili
-    font-weight: 700; 
-    color: $primary-color; 
-}
+// 3. STILI PER I COMPONENTI SPECIFICI (Utilizzo di NESTING SCSS)
+// -------------------------------------------------------------
 
-// Stile personalizzato per i bottoni (CTA)
-.btn-primary-custom {
-    // Uso !important solo se il semplice selettore non basta a causa della specificità di Bootstrap.
-    // Lo usiamo qui in modo didattico per garantire l'applicazione del colore Accento.
-    
-    // Colore di sfondo basato sul colore Accento (deve essere forzato)
-    background-color: $accent-color !important;
-    // Colore del testo chiaro (bianco) per il contrasto
-    color: white !important; 
-    // Rimuovo il bordo di default (deve essere forzato)
-    border-color: $accent-color !important; 
+// Stile per tutti i bottoni (CTA) che usano la classe custom `btn-accent`
+.btn-accent {
+    // Applica il colore Arancione come sfondo per l'accento visivo.
+    background-color: $accent-orange;
+    // Testo bianco per contrasto ottimale.
+    color: $text-light;
+    // Rimuove il bordo predefinito.
+    border: none;
+    // Padding e raggio angolare leggermente aumentati per un look moderno.
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    // Transizione per un effetto hover più fluido.
+    transition: all 0.3s ease-in-out;
 
-    // Uso le variabili CSS di Bootstrap per definire gli stati di hover/focus internamente
-    // Questo è il modo più pulito in Bootstrap 5 per evitare conflitti, anche se `!important` risolve l'override.
-    --bs-btn-bg: #{$accent-color}; 
-    --bs-btn-border-color: #{$accent-color};
-
-    // Regola di nesting: stile al passaggio del mouse (hover)
     &:hover {
-        // Oscuro leggermente il colore Accento per il feedback visivo
-        background-color: darken($accent-color, 10%) !important; 
-        border-color: darken($accent-color, 10%) !important; 
-        color: white !important;
-    }
-    
-    // Regola per lo stato attivo/focus
-    &:focus, &:active {
-        box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.5) !important; // Ombra focus arancione
+        // Scurendo il colore per feedback visivo all'utente.
+        background-color: darken($accent-orange, 10%);
+        // Aggiunge una leggera traslazione verso l'alto per un effetto "pop".
+        transform: translateY(-2px);
     }
 }
 
-// ======================================================
-// 3. NAVBAR (Stili specifici)
-// ======================================================
-
-// Stile per la navbar. Uso il selettore di Bootstrap `navbar-expand-lg` per lo sfondo.
-.navbar-expand-lg {
-    // Rendo lo sfondo della navbar completamente bianco e leggermente trasparente
-    background-color: rgba(255, 255, 255, 0.95) !important; 
-    // Aggiungo un'ombra sottile per farla staccare dal body (effetto "sticky")
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
-}
-
-// Stile per i link nella navbar
-.nav-link {
-    color: $text-color;
-    // Aumento leggermente il font weight per dare enfasi
-    font-weight: 500; 
-
-    // Regola di nesting: al passaggio del mouse e per la pagina attiva
-    &:hover, &.active {
-        // Colore Primario per evidenziare il link attivo/selezionato
-        color: $primary-color !important;
-    }
-}
-
-// ======================================================
-// 4. HOME PAGE (Stili specifici per le sezioni)
-// ======================================================
-
-// Stile per la Hero Section
-.hero-section {
-    // Uso d-flex, una classe Bootstrap, per impostare Flexbox
-    // Lo giustifico per il contenuto, centro gli elementi
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    // Aggiungo padding in alto e in basso per spazio verticale
-    padding: 60px 0;
-}
-
-// Stile per l'immagine del profilo nella Hero
-.profile-img {
-    // Assicuro che l'immagine sia circolare (esagonale se si usa Bootstrap)
-    border-radius: 50%; 
-    // Aggiungo un bordo per staccarla visivamente
-    border: 5px solid $primary-color; 
-    // Aggiusto la dimensione massima
-    max-width: 250px;
-    height: auto;
-    // Rendo il bordo della foto colorato
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
-}
-
-// ======================================================
-// 5. PORTFOLIO PAGE (CSS Grid)
-// ======================================================
-
-// Contenitore principale della griglia per i progetti
-.projects-grid {
-    // **Uso di CSS Grid (Requisito Tecnico)**
-    // Imposto il display a grid
-    display: grid; 
-    // Definisco le colonne della griglia
-    // Di default, su mobile (schermi piccoli), avremo una sola colonna
-    grid-template-columns: 1fr; 
-    // Spaziatura tra le righe e le colonne
-    gap: 30px; 
-    padding: 30px 0;
-
-    // Media Query con nesting: applica le regole solo su schermi larghi (desktop)
-    @media (min-width: $grid-breakpoint) {
-        // Su schermi più grandi, passo a tre colonne di larghezza uguale
-        grid-template-columns: repeat(3, 1fr); 
-    }
-
-    // Stile per la singola card del progetto (elemento figlio della griglia)
-    .project-card {
-        // Bordo leggero per definire i limiti della card
-        border: 1px solid #ddd; 
-        // Angoli arrotondati per un look più moderno
-        border-radius: 8px; 
-        // Leggera ombra per un effetto 3D
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
-        // Transizione per l'effetto hover
-        transition: transform 0.3s ease, box-shadow 0.3s ease; 
-
-        // Regola di nesting: effetto al passaggio del mouse (hover)
+// Stili per la Navbar
+// La classe Bootstrap `sticky-top` è utilizzata in HTML, qui aggiungiamo lo stile visivo.
+#mainNavbar {
+    // Usa il colore Primario come sfondo per la navbar fissa.
+    background-color: rgba($primary-blue, 0.95); // Blu con leggera trasparenza
+    // Colore del testo nella navbar (override del colore ereditato)
+    .nav-link, .navbar-brand {
+        color: $text-light;
         &:hover {
-            // Sollevo leggermente la card
-            transform: translateY(-5px); 
-            // Aumento l'ombra per evidenziarla
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            color: $accent-orange; // Effetto hover con l'Accento Arancione.
         }
+    }
+    // Stile per l'icona del logo (Placeholder)
+    .navbar-brand i {
+        font-size: 1.5rem;
+    }
+}
 
-        // Stile per l'immagine del progetto
-        img {
-            // L'immagine deve occupare il 100% della larghezza della card
-            width: 100%; 
-            // Rende solo gli angoli superiori arrotondati (perché l'immagine è in cima)
-            border-top-left-radius: 8px; 
-            border-top-right-radius: 8px;
-            // Assicura che l'immagine copra l'area senza deformarsi
-            object-fit: cover; 
-            // Altezza fissa per uniformità nella griglia
-            height: 200px; 
-        }
-
-        // Stile per il corpo del testo della card
-        .card-body {
-            padding: 15px;
+// Sezione Progetti (Utilizzo di CSS GRID come richiesto)
+#progetti {
+    .progetti-grid {
+        // Display Grid: Uso del CSS Grid Layout per creare una galleria di progetti moderna.
+        display: grid;
+        // Proprietà Responsive: colonnne che si adattano allo spazio disponibile.
+        // Usa `repeat(auto-fit, minmax(280px, 1fr))` per griglia fluida:
+        // * Auto-fit: riempie la riga con più colonne possibili.
+        // * Minmax: ogni colonna avrà un minimo di 280px e occuperà 1 frazione (1fr) dello spazio rimanente.
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        // Spaziatura tra gli elementi della griglia.
+        gap: 2rem; 
+    }
+    
+    .card-progetto {
+        // Semplice effetto hover per dare vita alla card.
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        &:hover {
+            // Leggero sollevamento e ombra per evidenziare il progetto.
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
     }
 }
 
-// ======================================================
-// 6. CV PAGE (Minimal Style)
-// ======================================================
 
-// Stile per rendere il CV ordinato, usando le classi di spaziatura di Bootstrap
-.cv-section {
-    // Uso il colore Primario per i divisori
-    border-bottom: 2px solid $primary-color; 
-    // Spazio sotto ogni sezione
-    padding-bottom: 15px; 
-    margin-bottom: 30px;
-}
+// Stili per la pagina CV (cv.html)
+// ---------------------------------
+#cv-page {
+    // Aggiungo padding superiore per bilanciare la navbar sticky
+    padding-top: 5rem; 
 
-// Stile per i titoli delle esperienze/formazione nel CV
-.cv-item-title {
-    // Grassetto per evidenziare il ruolo/corso
-    font-weight: 700; 
-    // Margine inferiore per separare dal testo
-    margin-bottom: 5px; 
-    color: $text-color; 
-}
+    .cv-container {
+        // Massima larghezza per simulare un documento A4 cartaceo e migliorare la leggibilità.
+        max-width: 900px; 
+    }
+    
+    // Stile dei titoli principali della sezione CV
+    h3 {
+        color: $primary-blue;
+        border-bottom: 2px solid $accent-orange; // Linea sotto il titolo per separazione netta.
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    
+    // Contenitore per esperienza/istruzione
+    .cv-item {
+        margin-bottom: 1.5rem;
+        // Utilizzo di Flexbox per allineare data e titolo
+        display: flex;
+        flex-direction: column;
 
-// Stile per le date nel CV
-.cv-item-date {
-    // Colore Primario per evidenziare la timeline
-    color: $primary-color; 
-    // Corsivo per distinzione
-    font-style: italic; 
-}
-
-// ======================================================
-// 7. CONTATTI PAGE (Stili per il Form)
-// ======================================================
-
-// Stile per l'area del form
-.contact-form-container {
-    // Massimizza la larghezza del form su desktop per non farlo allungare troppo
-    max-width: 600px; 
-    // Centra il form al centro della pagina
-    margin: 30px auto; 
-    // Leggera imbottitura e ombra per distinguerlo
-    padding: 30px; 
-    border: 1px solid #eee;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        @media (min-width: 768px) {
+            // Su desktop, allinea su due colonne (data a sinistra, contenuto a destra)
+            flex-direction: row;
+            justify-content: space-between;
+            
+            .cv-date {
+                // Larghezza fissa per le date su desktop
+                flex-basis: 25%; 
+                font-weight: bold;
+                color: $accent-orange;
+            }
+            .cv-content {
+                // La parte del contenuto prende lo spazio rimanente
+                flex-basis: 70%; 
+            }
+        }
+    }
 }

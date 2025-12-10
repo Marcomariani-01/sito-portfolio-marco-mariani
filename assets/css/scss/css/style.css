@@ -1,17 +1,23 @@
+@charset "UTF-8";
 body {
   font-family: "Lora", serif;
   color: #333333;
 }
 
 a {
-  color: #004c97;
+  color: #08325C;
 }
 a:hover {
-  color: rgb(0, 50.3311258278, 100);
+  color: rgb(3.92, 24.5, 45.08);
+}
+
+.accent {
+  color: #FF6600;
+  font-weight: bold;
 }
 
 .btn-accent {
-  background-color: #ff5e14;
+  background-color: #FF6600;
   color: #f8f9fa;
   border: none;
   padding: 0.75rem 2rem;
@@ -19,18 +25,18 @@ a:hover {
   transition: all 0.3s ease-in-out;
 }
 .btn-accent:hover {
-  background-color: rgb(224, 70.5361702128, 0);
+  background-color: rgb(204, 81.6, 0);
   transform: translateY(-2px);
 }
 
 #mainNavbar {
-  background-color: rgba(0, 76, 151, 0.95);
+  background-color: rgba(8, 50, 92, 0.95);
 }
 #mainNavbar .nav-link, #mainNavbar .navbar-brand {
   color: #f8f9fa;
 }
 #mainNavbar .nav-link:hover, #mainNavbar .navbar-brand:hover {
-  color: #ff5e14;
+  color: #FF6600;
 }
 #mainNavbar .navbar-brand i {
   font-size: 1.5rem;
@@ -41,12 +47,25 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
+#progetti .progetti-grid .card-progetto {
+  height: 100%;
+}
 #progetti .card-progetto {
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 #progetti .card-progetto:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+#progetti .card-progetto .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+#progetti .card-progetto .card-body .btn {
+  margin-top: auto;
 }
 
 #cv-page {
@@ -56,8 +75,8 @@ a:hover {
   max-width: 900px;
 }
 #cv-page h3 {
-  color: #004c97;
-  border-bottom: 2px solid #ff5e14;
+  color: #08325C;
+  border-bottom: 2px solid #FF6600;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
 }
@@ -74,7 +93,7 @@ a:hover {
   #cv-page .cv-item .cv-date {
     flex-basis: 25%;
     font-weight: bold;
-    color: #ff5e14;
+    color: #FF6600;
   }
   #cv-page .cv-item .cv-content {
     flex-basis: 70%;
@@ -88,19 +107,23 @@ a:hover {
 }
 .skill-card:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  border-color: #ff5e14;
-}
-.skill-card i {
-  font-size: 3rem;
-  color: #004c97;
+  border-color: #08325C;
 }
 .skill-card ul {
   padding-left: 1.25rem;
 }
 .skill-card ul li {
   list-style: disc;
-  color: #ff5e14;
+  color: #08325C;
 }
 .skill-card ul li span {
   color: #333333;
+}
+
+/* FIX: FORZA LA VISIBILITÀ DELLE ICONE SOCIAL */
+#contatti .d-flex a {
+  color: #08325C !important;
+  font-size: 3rem !important;
+  display: inline-block !important;
+  opacity: 1 !important;
 }/*# sourceMappingURL=style.css.map */

@@ -7,8 +7,8 @@
 // --------------------------------------------------
 
 // Definizione della palette di colori e dei font
-$primary-blue: #004c97; // Tonalità professionale di Blu (Primario)
-$accent-orange: #ff5e14; // Arancione (Accento/CTA)
+$primary-blue: #08325C; // Tonalità professionale di Blu (Primario)
+$accent-orange: #FF6600; // Arancione (Accento/CTA)
 $text-dark: #333333; // Colore testo scuro
 $text-light: #f8f9fa; // Colore testo chiaro
 
@@ -38,6 +38,12 @@ a {
         color: darken($primary-blue, 10%);
     }
 }
+
+
+.accent { 
+    color: $accent-orange;
+    font-weight: bold;
+  }
 
 // 3. STILI PER I COMPONENTI SPECIFICI (Utilizzo di NESTING SCSS)
 // -------------------------------------------------------------
@@ -85,28 +91,50 @@ a {
 // Sezione Progetti (Utilizzo di CSS GRID come richiesto)
 #progetti {
     .progetti-grid {
-        // Display Grid: Uso del CSS Grid Layout per creare una galleria di progetti moderna.
         display: grid;
-        // Proprietà Responsive: colonnne che si adattano allo spazio disponibile.
-        // Usa `repeat(auto-fit, minmax(280px, 1fr))` per griglia fluida:
-        // * Auto-fit: riempie la riga con più colonne possibili.
-        // * Minmax: ogni colonna avrà un minimo di 280px e occuperà 1 frazione (1fr) dello spazio rimanente.
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        // Spaziatura tra gli elementi della griglia.
         gap: 2rem; 
+        
+        // **IMPORTANTE**: Assicurati che le card all'interno della griglia abbiano l'altezza al 100%
+        // per riempire lo spazio della riga della griglia che ha l'altezza dell'elemento più alto.
+        .card-progetto {
+            height: 100%; // <-- Aggiunto
+        }
     }
     
     .card-progetto {
-        // Semplice effetto hover per dare vita alla card.
+        // 1. Abilita Flexbox e imposta l'orientamento verticale
+        display: flex; // <-- AGGIUNTA CHIAVE 1
+        flex-direction: column; // <-- AGGIUNTA CHIAVE 2
+        
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        
         &:hover {
-            // Leggero sollevamento e ombra per evidenziare il progetto.
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+        
+        // 2. Applica la spinta al body (il contenitore di testo e pulsante)
+        .card-body {
+            // margin-top: auto non funziona qui perché abbiamo bisogno di spingere
+            // l'intero blocco di testo + pulsante in modo che solo il pulsante sia in basso.
+            // Però funziona per spingere il pulsante al fondo del body.
+            // Quindi, applichiamo la spinta al contenuto variabile:
+            
+            // Il .card-body deve usare tutto lo spazio residuo
+            flex-grow: 1; // <-- AGGIUNTA CHIAVE 3: permette al body di espandersi
+            
+            // 3. (OPZIONALE, ma aiuta a centrare il pulsante in fondo)
+            display: flex; 
+            flex-direction: column; 
+
+            // 4. Seleziona il pulsante (o il suo contenitore) e dagli la spinta
+            .btn {
+                 margin-top: auto; // <-- AGGIUNTA CHIAVE 4: Spinge il pulsante in basso all'interno del .card-body
+            }
+        }
     }
 }
-
 
 // Stili per la pagina CV (cv.html)
 // ---------------------------------
@@ -167,15 +195,10 @@ a {
     &:hover {
         // Ombra più marcata e bordo colorato per feedback.
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        border-color: $accent-orange; // Usa il colore Accento Arancione.
+        border-color: $primary-blue; // Usa il colore Accento Arancione.
     }
 
-    // Stile per l'icona interna della card
-    i {
-        // Dimensione grande per l'icona (visibilità immediata)
-        font-size: 3rem; 
-        color: $primary-blue; // Colore Primario Blu
-    }
+    
     
     // Stile per l'elenco delle skill specifiche
     ul {
@@ -183,11 +206,32 @@ a {
         li {
             // Piccolo punto colorato come marcatore
             list-style: disc;
-            color: $accent-orange; 
+            color: $primary-blue; 
             span {
                 // Il testo del punto è nero, solo il marcatore è arancione.
                 color: $text-dark; 
             }
         }
+    }
+}
+
+
+// Aggiungi questo blocco alla fine della SEZIONE 3 o dove ritieni opportuno:
+
+/* FIX: FORZA LA VISIBILITÀ DELLE ICONE SOCIAL */
+#contatti {
+    .d-flex a {
+        // Applica il colore Primario Blu come desiderato
+        color: $primary-blue !important; 
+        
+        // Aumenta la dimensione del font (anche se hai fs-3)
+        // Usiamo un valore fisso solo per il test
+        font-size: 3rem !important; 
+        
+        // Assicurati che non siano nascoste
+        display: inline-block !important;
+        opacity: 1 !important;
+        
+      
     }
 }

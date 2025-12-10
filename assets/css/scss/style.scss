@@ -30,6 +30,7 @@ body {
 
 // Stile personalizzato per i link e le CTA (Call to Action)
 a {
+    
     // Uso del colore Primario Blu per tutti i link non bottone.
     color: $primary-blue;
     &:hover {
@@ -147,6 +148,45 @@ a {
             .cv-content {
                 // La parte del contenuto prende lo spazio rimanente
                 flex-basis: 70%; 
+            }
+        }
+    }
+}
+
+// ... (codice SCSS precedente)
+
+// 4. STILI PER LE CARD SKILLS
+// -------------------------------------------------------------
+.skill-card {
+    // Aggiungiamo un leggero bordo e transizione per l'effetto hover.
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    
+    // Stile al passaggio del mouse per evidenziare la card.
+    &:hover {
+        // Ombra più marcata e bordo colorato per feedback.
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        border-color: $accent-orange; // Usa il colore Accento Arancione.
+    }
+
+    // Stile per l'icona interna della card
+    i {
+        // Dimensione grande per l'icona (visibilità immediata)
+        font-size: 3rem; 
+        color: $primary-blue; // Colore Primario Blu
+    }
+    
+    // Stile per l'elenco delle skill specifiche
+    ul {
+        padding-left: 1.25rem; // Rimuove il padding in eccesso del 'list-unstyled' se lo usassimo altrove
+        li {
+            // Piccolo punto colorato come marcatore
+            list-style: disc;
+            color: $accent-orange; 
+            span {
+                // Il testo del punto è nero, solo il marcatore è arancione.
+                color: $text-dark; 
             }
         }
     }

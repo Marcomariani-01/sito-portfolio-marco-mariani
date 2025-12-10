@@ -79,4 +79,28 @@ a:hover {
   #cv-page .cv-item .cv-content {
     flex-basis: 70%;
   }
+}
+
+.skill-card {
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.5rem;
+}
+.skill-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border-color: #ff5e14;
+}
+.skill-card i {
+  font-size: 3rem;
+  color: #004c97;
+}
+.skill-card ul {
+  padding-left: 1.25rem;
+}
+.skill-card ul li {
+  list-style: disc;
+  color: #ff5e14;
+}
+.skill-card ul li span {
+  color: #333333;
 }/*# sourceMappingURL=style.css.map */

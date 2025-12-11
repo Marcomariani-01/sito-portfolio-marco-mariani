@@ -4,13 +4,18 @@
 // ===============================================
 
 // 1. DEFINIZIONE DEL DESIGN SYSTEM (VARIABILI SASS)
-// --------------------------------------------------
+// Colori Standard (Light Mode)
+$primary-blue: #08325C;
+$accent-orange: #FF6600;
+$light-bg: #f8f9fa; // Background per light mode
+$light-text: #333333; // Testo per light mode
+$light-card-bg: #ffffff; // Sfondo delle card per light mode
 
-// Definizione della palette di colori e dei font
-$primary-blue: #08325C; // Tonalità professionale di Blu (Primario)
-$accent-orange: #FF6600; // Arancione (Accento/CTA)
-$text-dark: #333333; // Colore testo scuro
-$text-light: #f8f9fa; // Colore testo chiaro
+// Colori Dark Mode
+$dark-bg: #1a1a1a; // Background per dark mode (scuro)
+$dark-text: #f8f9fa; // Testo per dark mode (chiaro)
+$dark-card-bg: #2b2b2b; // Sfondo delle card per dark mode (leggermente più chiaro del bg)
+$dark-border: rgba(255, 255, 255, 0.1); // Bordi sottili in dark mode
 
 // Font per l'intero body. Bootstrap eredita dal body.
 $font-family-serif: 'Lora', serif;
@@ -342,3 +347,239 @@ a {
 .legal-text {
     opacity: 0.8; /* Lo rende leggermente meno prominente */
 }
+
+
+
+// ===============================================
+// NUOVI STILI PER L'ANIMAZIONE FLIP CARD
+// ===============================================
+
+// 1. Definisce il contenitore esterno e la prospettiva per l'effetto 3D
+.flip-card {
+    // Dimensioni del contenitore 
+    width: 75%; 
+    height: auto;
+    aspect-ratio: 1 / 1; // Assicura che sia un quadrato se l'immagine è tonda
+    
+    perspective: 1000px; // Dà profondità all'animazione 3D
+    border-radius: 50%; // Mantiene la forma circolare
+    overflow: hidden; // Nasconde gli angoli in eccesso
+
+    // Stile per l'elemento interno che viene ruotato
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s; // Durata e fluidità dell'animazione
+        transform-style: preserve-3d; // Mantiene gli elementi 3D
+        border-radius: 50%;
+    }
+    
+    // Lo stato hover attiva la rotazione
+    &:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    // Parte anteriore e posteriore (inizialmente una sopra l'altra)
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Nasconde il retro durante la rotazione */
+        backface-visibility: hidden;
+        border-radius: 50%;
+    }
+
+    // Stile per l'immagine frontale
+    .flip-card-front {
+        background-color: transparent;
+        // Assicura che l'immagine occupi lo spazio e sia tonda
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 50%;
+        }
+    }
+
+    // Stile per la parte posteriore (il logo)
+    .flip-card-back {
+        // Usa il tuo colore primario per lo sfondo del retro
+        background-color: $primary-blue; 
+        color: white;
+        transform: rotateY(180deg); // Inizialmente ruotato di 180° (nascosto)
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+// ===============================================
+// NUOVI STILI PER L'ANIMAZIONE SLIDE-IN
+// ===============================================
+
+#skills .skill-card-slide-in {
+    // 1. Stato Iniziale: Nascosto e spostato a sinistra
+    opacity: 0;
+    transform: translateX(-50px); 
+    
+    // 2. Transizione (Fluidità): 0.6s per l'animazione
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+    
+    // 3. Ritardo sfalsato (Staggered Delay):
+    // La prima card parte subito, le altre con un leggero ritardo
+    &:nth-child(1) { transition-delay: 0.0s; }
+    &:nth-child(2) { transition-delay: 0.15s; }
+    &:nth-child(3) { transition-delay: 0.3s; }
+}
+
+#skills .skill-card-slide-in.is-visible {
+    // 4. Stato Finale (Animazione Completa): Visibile e in posizione
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+#contatti {
+    // Stile generale per i campi di input e textarea
+    .form-control {
+        // Applica una transizione fluida su tutti i cambiamenti di stile
+        transition: all 0.3s ease-in-out;
+        
+        // Lo stato :focus sovrascrive forzatamente gli stili di Bootstrap
+        &:focus {
+            // 1. Forza il colore del bordo con il tuo blu
+            border-color: $primary-blue !important; 
+            
+            // 2. Forza l'anello di focus (box-shadow) usando la versione semi-trasparente del tuo blu
+            box-shadow: 0 0 0 0.25rem rgba($primary-blue, 0.25) !important;
+            
+            // 3. Animazione: piccolo effetto di ingrandimento
+            transform: scale(1.005); 
+            
+            // 4. Rimuove l'outline del browser
+            outline: 0;
+        }
+    }
+    
+    // Stile specifico per l'area di testo
+    textarea.form-control {
+        resize: vertical; 
+    }
+    
+    // ... (Mantieni il blocco .social-link qui sotto)
+}
+
+
+
+
+// ===============================================
+// NUOVI STILI PER MESSAGGIO DI FEEDBACK POST-INVIO
+// ===============================================
+
+// Stile generale del contenitore del messaggio di successo
+.feedback-success {
+    // Colori basati sul tuo Primary Blue
+    background-color: lighten($primary-blue, 50%);
+    color: $primary-blue;
+    border: 1px solid $primary-blue;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Spazio sotto il messaggio */
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    
+    // Stato Iniziale (Nascosto e spostato)
+    opacity: 0;
+    transform: translateY(10px);
+    
+    // Transizione per l'animazione fluida
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+// Stato Attivo: Aggiunto dal JavaScript per avviare l'animazione
+.feedback-success.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+// ===============================================
+// TEMA SCURO (DARK MODE)
+// ===============================================
+
+body.dark-mode {
+    background-color: $dark-bg;
+    color: $dark-text;
+    
+    // Inverti i colori principali
+    section, footer {
+        background-color: $dark-bg !important; 
+        color: $dark-text;
+    }
+    
+    // Inverti i colori di tutti gli elementi Card/Sfondo
+    .card, .modal-content, .offcanvas {
+        background-color: $dark-card-bg !important;
+        color: $dark-text;
+        border-color: $dark-border !important;
+    }
+    
+    // Inverti i colori dei link non primari
+    a {
+        color: $light-text; // Rende i link più visibili
+        &:hover {
+            color: $accent-orange;
+        }
+    }
+    
+    // Inverti i colori dei form control (input)
+    .form-control {
+        background-color: $dark-bg;
+        color: $dark-text;
+        border-color: $dark-border;
+        
+        &:focus {
+             // Mantieni l'animazione focus, ma con colori dark-friendly
+            border-color: lighten($primary-blue, 20%) !important; 
+            box-shadow: 0 0 0 0.25rem rgba(lighten($primary-blue, 20%), 0.25) !important;
+        }
+    }
+}
+
+
+
+
+/* ===============================================
+ANIMAZIONE HERO SECTION (LOAD-IN)
+=============================================== */
+
+#hero-text-container [class^="reveal-item-"] {
+    /* 1. Stato Iniziale: Nascosto e spostato leggermente in alto */
+    opacity: 0;
+    transform: translateY(20px); 
+    
+    /* 2. Transizione (Fluidità): Tempo di animazione comune a tutti gli elementi */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Stato finale (attivato quando il container riceve la classe 'is-loaded') */
+#hero-text-container.is-loaded [class^="reveal-item-"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ritardo sfalsato (Staggered delay) */
+#hero-text-container.is-loaded .reveal-item-1 { transition-delay: 0.2s; } 
+#hero-text-container.is-loaded .reveal-item-2 { transition-delay: 0.3s; } 
+#hero-text-container.is-loaded .reveal-item-3 { transition-delay: 0.4s; } 
+#hero-text-container.is-loaded .reveal-item-4 { transition-delay: 0.5s; } 
+#hero-text-container.is-loaded .reveal-item-5 { transition-delay: 0.6s; }
+
+
+
+

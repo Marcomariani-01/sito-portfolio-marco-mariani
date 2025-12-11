@@ -126,4 +126,8 @@ a:hover {
   font-size: 3rem !important;
   display: inline-block !important;
   opacity: 1 !important;
+}
+
+#cv-page {
+  padding-top: -100px;
 }/*# sourceMappingURL=style.css.map */

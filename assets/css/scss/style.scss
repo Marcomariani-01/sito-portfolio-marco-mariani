@@ -21,6 +21,7 @@ $font-family-serif: 'Lora', serif;
 // Questo deve essere fatto PRIMA di importare il resto di Bootstrap (se lo volessimo importare con SASS).
 // In questo caso usiamo CDN, quindi queste variabili verranno usate SOLO nelle nostre classi custom.
 
+
 body {
     // Uso della variabile SASS per definire il font, come richiesto dal design system.
     font-family: $font-family-serif;
@@ -235,3 +236,6 @@ a {
       
     }
 }
+
+
+

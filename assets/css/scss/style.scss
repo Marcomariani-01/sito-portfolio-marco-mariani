@@ -50,6 +50,54 @@ a {
 // -------------------------------------------------------------
 
 // Stile per tutti i bottoni (CTA) che usano la classe custom `btn-accent`
+
+
+// ===============================================
+// 3. STILI PER I COMPONENTI SPECIFICI
+// ... (altri stili)
+
+// Sovrascrittura dei pulsanti Bootstrap per usare $primary-blue
+
+// Stile per i pulsanti .btn-primary (sfondo colorato)
+.btn-primary {
+    background-color: $primary-blue !important;
+    border-color: $primary-blue !important;
+    color: $text-light !important; // Testo bianco per buon contrasto
+    
+    // Transizione per l'effetto hover
+    transition: all 0.3s ease-in-out;
+
+    &:hover, &:focus, &:active {
+        // Scuro leggermente il colore al passaggio del mouse
+        background-color: darken($primary-blue, 10%) !important;
+        border-color: darken($primary-blue, 10%) !important;
+        color: $text-light !important;
+        transform: translateY(-1px); // Piccolo effetto sollevamento
+    }
+}
+
+// Stile per i pulsanti .btn-outline-primary (solo bordo colorato)
+.btn-outline-primary {
+    color: $primary-blue !important;
+    border-color: $primary-blue !important;
+    background-color: transparent !important;
+    
+    // Transizione per l'effetto hover
+    transition: all 0.3s ease-in-out;
+
+    &:hover, &:focus, &:active {
+        // Al passaggio del mouse, inverte i colori
+        background-color: $primary-blue !important;
+        color: $text-light !important; // Testo diventa bianco
+        border-color: $primary-blue !important;
+        transform: translateY(-1px); // Piccolo effetto sollevamento
+    }
+}
+
+
+
+
+
 .btn-accent {
     // Applica il colore Arancione come sfondo per l'accento visivo.
     background-color: $accent-orange;
@@ -221,21 +269,76 @@ a {
 
 /* FIX: FORZA LA VISIBILITÀ DELLE ICONE SOCIAL */
 #contatti {
-    .d-flex a {
-        // Applica il colore Primario Blu come desiderato
+    .social-link {
+        // Assicura il colore iniziale e imposta la transizione
         color: $primary-blue !important; 
-        
-        // Aumenta la dimensione del font (anche se hai fs-3)
-        // Usiamo un valore fisso solo per il test
         font-size: 3rem !important; 
-        
-        // Assicurati che non siano nascoste
         display: inline-block !important;
-        opacity: 1 !important;
         
-      
+        // La chiave dell'animazione: transizione fluida
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
     }
+
+    .social-link:hover {
+        // Colore al passaggio del mouse (Orange Accento)
+        color: $accent-orange !important; 
+        
+        // Animazione: Solleva e ingrandisce leggermente l'icona
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+/*
+ * CSS PERSONALIZZATO PER GLI INDICATORI DEL CAROSELLO
+ */
+
+.carousel-indicators [data-bs-target] {
+    /* Imposta la forma a cerchio */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; 
+    
+    /* Migliora la visibilità */
+    background-color: #5c5a5a; /* Colore bianco */
+    opacity: 0.5; /* Opacità per gli elementi non attivi */
+    border: none; /* Rimuove il bordo che potrebbe causare l'effetto "lineetta" */
+    
+    /* Spazio tra i pallini */
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.carousel-indicators .active {
+    /* Pallino attivo: più opaco e visibile */
+    opacity: 1; 
 }
 
 
 
+/* ------------------------------------------- */
+/* 1. Stile Footer: Colore Navbar */
+/* ------------------------------------------- */
+#mainFooter {
+    background-color: #1B3A64; /* Sostituisci con il tuo blu esatto */
+}
+
+/* ------------------------------------------- */
+/* 2. Animazione Icone Social (Hover) */
+/* ------------------------------------------- */
+.footer-icon {
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.footer-icon:hover {
+    color: #FF5722 !important; /* Colore Accento Arancione */
+    transform: translateY(-5px) scale(1.1); 
+}
+
+#mainFooter a {
+    text-decoration: none;
+}
+
+/* Opzionale: stile per il testo legale piccolo */
+.legal-text {
+    opacity: 0.8; /* Lo rende leggermente meno prominente */
+}

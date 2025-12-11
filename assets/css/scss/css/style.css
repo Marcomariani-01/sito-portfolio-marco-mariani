@@ -16,6 +16,32 @@ a:hover {
   font-weight: bold;
 }
 
+.btn-primary {
+  background-color: #08325C !important;
+  border-color: #08325C !important;
+  color: #f8f9fa !important;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: rgb(3.92, 24.5, 45.08) !important;
+  border-color: rgb(3.92, 24.5, 45.08) !important;
+  color: #f8f9fa !important;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  color: #08325C !important;
+  border-color: #08325C !important;
+  background-color: transparent !important;
+  transition: all 0.3s ease-in-out;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+  background-color: #08325C !important;
+  color: #f8f9fa !important;
+  border-color: #08325C !important;
+  transform: translateY(-1px);
+}
+
 .btn-accent {
   background-color: #FF6600;
   color: #f8f9fa;
@@ -121,13 +147,63 @@ a:hover {
 }
 
 /* FIX: FORZA LA VISIBILITÀ DELLE ICONE SOCIAL */
-#contatti .d-flex a {
+#contatti .social-link {
   color: #08325C !important;
   font-size: 3rem !important;
   display: inline-block !important;
-  opacity: 1 !important;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#contatti .social-link:hover {
+  color: #FF6600 !important;
+  transform: translateY(-3px) scale(1.05);
 }
 
-#cv-page {
-  padding-top: -100px;
+/*
+ * CSS PERSONALIZZATO PER GLI INDICATORI DEL CAROSELLO
+ */
+.carousel-indicators [data-bs-target] {
+  /* Imposta la forma a cerchio */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* Migliora la visibilità */
+  background-color: #5c5a5a; /* Colore bianco */
+  opacity: 0.5; /* Opacità per gli elementi non attivi */
+  border: none; /* Rimuove il bordo che potrebbe causare l'effetto "lineetta" */
+  /* Spazio tra i pallini */
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.carousel-indicators .active {
+  /* Pallino attivo: più opaco e visibile */
+  opacity: 1;
+}
+
+/* ------------------------------------------- */
+/* 1. Stile Footer: Colore Navbar */
+/* ------------------------------------------- */
+#mainFooter {
+  background-color: #1B3A64; /* Sostituisci con il tuo blu esatto */
+}
+
+/* ------------------------------------------- */
+/* 2. Animazione Icone Social (Hover) */
+/* ------------------------------------------- */
+.footer-icon {
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.footer-icon:hover {
+  color: #FF5722 !important; /* Colore Accento Arancione */
+  transform: translateY(-5px) scale(1.1);
+}
+
+#mainFooter a {
+  text-decoration: none;
+}
+
+/* Opzionale: stile per il testo legale piccolo */
+.legal-text {
+  opacity: 0.8; /* Lo rende leggermente meno prominente */
 }/*# sourceMappingURL=style.css.map */

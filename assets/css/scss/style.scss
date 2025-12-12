@@ -459,3 +459,23 @@ a {
 
 
 
+// ===============================================
+// 6. STILI PER CURSORE ICONA PERSONALIZZATA
+// ===============================================
+
+// 1. Cursore predefinito per il body
+body {
+    cursor: url('arrowhead-rounded-outline-small.svg') 16 16, auto; 
+    
+   
+}
+
+// 2. Cursore per gli elementi interattivi (Link, Bottoni, etc.)
+
+a, button, .card-progetto, input[type="submit"], #theme-toggle {
+    
+    
+    cursor: pointer; 
+    
+
+}

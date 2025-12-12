@@ -162,15 +162,14 @@ a:hover {
  * CSS PERSONALIZZATO PER GLI INDICATORI DEL CAROSELLO
  */
 .carousel-indicators [data-bs-target] {
-  /* Imposta la forma a cerchio */
   width: 10px;
   height: 10px;
   border-radius: 50%;
   /* Migliora la visibilità */
   background-color: #5c5a5a; /* Colore bianco */
-  opacity: 0.5; /* Opacità per gli elementi non attivi */
-  border: none; /* Rimuove il bordo che potrebbe causare l'effetto "lineetta" */
-  /* Spazio tra i pallini */
+  opacity: 0.5; 
+  border: none; 
+  
   margin-right: 3px;
   margin-left: 3px;
 }
@@ -184,7 +183,7 @@ a:hover {
 /* 1. Stile Footer: Colore Navbar */
 /* ------------------------------------------- */
 #mainFooter {
-  background-color: #1B3A64; /* Sostituisci con il tuo blu esatto */
+  background-color: #08325C; 
 }
 
 /* ------------------------------------------- */
@@ -203,9 +202,8 @@ a:hover {
   text-decoration: none;
 }
 
-/* Opzionale: stile per il testo legale piccolo */
 .legal-text {
-  opacity: 0.8; /* Lo rende leggermente meno prominente */
+  opacity: 0.8; 
 }
 
 .flip-card {
@@ -306,3 +304,5 @@ a:hover {
   opacity: 1;
   transform: translateY(0);
 }/*# sourceMappingURL=style.css.map */
+
+

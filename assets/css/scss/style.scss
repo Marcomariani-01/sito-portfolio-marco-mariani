@@ -11,27 +11,18 @@ $light-bg: #f8f9fa; // Background per light mode
 $light-text: #333333; // Testo per light mode
 $light-card-bg: #ffffff; // Sfondo delle card per light mode
 
-// Colori Dark Mode
-$dark-bg: #1a1a1a; // Background per dark mode (scuro)
-$dark-text: #f8f9fa; // Testo per dark mode (chiaro)
-$dark-card-bg: #2b2b2b; // Sfondo delle card per dark mode (leggermente più chiaro del bg)
-$dark-border: rgba(255, 255, 255, 0.1); // Bordi sottili in dark mode
 
 // Font per l'intero body. Bootstrap eredita dal body.
 $font-family-serif: 'Lora', serif;
 
 // 2. CUSTOMIZZAZIONE DI BOOTSTRAP (Override delle variabili)
-// -----------------------------------------------------------
-// Sovrascriviamo le variabili di default di Bootstrap per applicare il nostro Design System.
-// Questo deve essere fatto PRIMA di importare il resto di Bootstrap (se lo volessimo importare con SASS).
-// In questo caso usiamo CDN, quindi queste variabili verranno usate SOLO nelle nostre classi custom.
+
 
 
 body {
     // Uso della variabile SASS per definire il font, come richiesto dal design system.
     font-family: $font-family-serif;
-    // Impostazione del colore del testo globale
-    color: $text-dark;
+   
 }
 
 // Stile personalizzato per i link e le CTA (Call to Action)
@@ -59,7 +50,7 @@ a {
 
 // ===============================================
 // 3. STILI PER I COMPONENTI SPECIFICI
-// ... (altri stili)
+
 
 // Sovrascrittura dei pulsanti Bootstrap per usare $primary-blue
 
@@ -142,24 +133,23 @@ a {
     }
 }
 
-// Sezione Progetti (Utilizzo di CSS GRID come richiesto)
+// Sezione Progetti 
 #progetti {
     .progetti-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem; 
         
-        // **IMPORTANTE**: Assicurati che le card all'interno della griglia abbiano l'altezza al 100%
-        // per riempire lo spazio della riga della griglia che ha l'altezza dell'elemento più alto.
+    
         .card-progetto {
-            height: 100%; // <-- Aggiunto
+            height: 100%;
         }
     }
     
     .card-progetto {
-        // 1. Abilita Flexbox e imposta l'orientamento verticale
-        display: flex; // <-- AGGIUNTA CHIAVE 1
-        flex-direction: column; // <-- AGGIUNTA CHIAVE 2
+        
+        display: flex; 
+        flex-direction: column; 
         
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         
@@ -168,23 +158,15 @@ a {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        // 2. Applica la spinta al body (il contenitore di testo e pulsante)
+        
         .card-body {
-            // margin-top: auto non funziona qui perché abbiamo bisogno di spingere
-            // l'intero blocco di testo + pulsante in modo che solo il pulsante sia in basso.
-            // Però funziona per spingere il pulsante al fondo del body.
-            // Quindi, applichiamo la spinta al contenuto variabile:
             
-            // Il .card-body deve usare tutto lo spazio residuo
-            flex-grow: 1; // <-- AGGIUNTA CHIAVE 3: permette al body di espandersi
-            
-            // 3. (OPZIONALE, ma aiuta a centrare il pulsante in fondo)
+            flex-grow: 1; 
             display: flex; 
             flex-direction: column; 
 
-            // 4. Seleziona il pulsante (o il suo contenitore) e dagli la spinta
             .btn {
-                 margin-top: auto; // <-- AGGIUNTA CHIAVE 4: Spinge il pulsante in basso all'interno del .card-body
+                 margin-top: auto; 
             }
         }
     }
@@ -193,76 +175,65 @@ a {
 // Stili per la pagina CV (cv.html)
 // ---------------------------------
 #cv-page {
-    // Aggiungo padding superiore per bilanciare la navbar sticky
+    
     padding-top: 5rem; 
 
     .cv-container {
-        // Massima larghezza per simulare un documento A4 cartaceo e migliorare la leggibilità.
+        
         max-width: 900px; 
     }
     
-    // Stile dei titoli principali della sezione CV
     h3 {
         color: $primary-blue;
-        border-bottom: 2px solid $accent-orange; // Linea sotto il titolo per separazione netta.
+        border-bottom: 2px solid $accent-orange; 
         padding-bottom: 0.5rem;
         margin-top: 2rem;
     }
     
-    // Contenitore per esperienza/istruzione
     .cv-item {
         margin-bottom: 1.5rem;
-        // Utilizzo di Flexbox per allineare data e titolo
         display: flex;
         flex-direction: column;
 
         @media (min-width: 768px) {
-            // Su desktop, allinea su due colonne (data a sinistra, contenuto a destra)
             flex-direction: row;
             justify-content: space-between;
             
             .cv-date {
-                // Larghezza fissa per le date su desktop
                 flex-basis: 25%; 
                 font-weight: bold;
                 color: $accent-orange;
             }
             .cv-content {
-                // La parte del contenuto prende lo spazio rimanente
                 flex-basis: 70%; 
             }
         }
     }
 }
 
-// ... (codice SCSS precedente)
 
 // 4. STILI PER LE CARD SKILLS
 // -------------------------------------------------------------
 .skill-card {
-    // Aggiungiamo un leggero bordo e transizione per l'effetto hover.
     border: 1px solid #e0e0e0;
     transition: all 0.3s ease-in-out;
     border-radius: 0.5rem;
     
-    // Stile al passaggio del mouse per evidenziare la card.
     &:hover {
-        // Ombra più marcata e bordo colorato per feedback.
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        border-color: $primary-blue; // Usa il colore Accento Arancione.
+        border-color: $primary-blue; 
     }
 
     
     
     // Stile per l'elenco delle skill specifiche
     ul {
-        padding-left: 1.25rem; // Rimuove il padding in eccesso del 'list-unstyled' se lo usassimo altrove
+        padding-left: 1.25rem; 
         li {
-            // Piccolo punto colorato come marcatore
+            
             list-style: disc;
             color: $primary-blue; 
             span {
-                // Il testo del punto è nero, solo il marcatore è arancione.
                 color: $text-dark; 
             }
         }
@@ -270,25 +241,18 @@ a {
 }
 
 
-// Aggiungi questo blocco alla fine della SEZIONE 3 o dove ritieni opportuno:
-
-/* FIX: FORZA LA VISIBILITÀ DELLE ICONE SOCIAL */
 #contatti {
     .social-link {
-        // Assicura il colore iniziale e imposta la transizione
         color: $primary-blue !important; 
         font-size: 3rem !important; 
         display: inline-block !important;
         
-        // La chiave dell'animazione: transizione fluida
         transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
     }
 
     .social-link:hover {
-        // Colore al passaggio del mouse (Orange Accento)
         color: $accent-orange !important; 
         
-        // Animazione: Solleva e ingrandisce leggermente l'icona
         transform: translateY(-3px) scale(1.05);
     }
 }
@@ -298,23 +262,18 @@ a {
  */
 
 .carousel-indicators [data-bs-target] {
-    /* Imposta la forma a cerchio */
     width: 10px;
     height: 10px;
     border-radius: 50%; 
     
-    /* Migliora la visibilità */
-    background-color: #5c5a5a; /* Colore bianco */
-    opacity: 0.5; /* Opacità per gli elementi non attivi */
-    border: none; /* Rimuove il bordo che potrebbe causare l'effetto "lineetta" */
-    
-    /* Spazio tra i pallini */
+    background-color: #5c5a5a; 
+    opacity: 0.5; 
+    border: none; 
     margin-right: 3px;
     margin-left: 3px;
 }
 
 .carousel-indicators .active {
-    /* Pallino attivo: più opaco e visibile */
     opacity: 1; 
 }
 
@@ -324,7 +283,7 @@ a {
 /* 1. Stile Footer: Colore Navbar */
 /* ------------------------------------------- */
 #mainFooter {
-    background-color: #1B3A64; /* Sostituisci con il tuo blu esatto */
+    background-color: #08325C; 
 }
 
 /* ------------------------------------------- */
@@ -343,9 +302,8 @@ a {
     text-decoration: none;
 }
 
-/* Opzionale: stile per il testo legale piccolo */
 .legal-text {
-    opacity: 0.8; /* Lo rende leggermente meno prominente */
+    opacity: 0.8; 
 }
 
 
@@ -354,47 +312,40 @@ a {
 // NUOVI STILI PER L'ANIMAZIONE FLIP CARD
 // ===============================================
 
-// 1. Definisce il contenitore esterno e la prospettiva per l'effetto 3D
 .flip-card {
-    // Dimensioni del contenitore 
     width: 75%; 
     height: auto;
-    aspect-ratio: 1 / 1; // Assicura che sia un quadrato se l'immagine è tonda
+    aspect-ratio: 1 / 1; 
     
-    perspective: 1000px; // Dà profondità all'animazione 3D
-    border-radius: 50%; // Mantiene la forma circolare
-    overflow: hidden; // Nasconde gli angoli in eccesso
+    perspective: 1000px; 
+    border-radius: 50%; 
+    overflow: hidden; 
 
-    // Stile per l'elemento interno che viene ruotato
     .flip-card-inner {
         position: relative;
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 0.6s; // Durata e fluidità dell'animazione
-        transform-style: preserve-3d; // Mantiene gli elementi 3D
+        transition: transform 0.6s; 
+        transform-style: preserve-3d; 
         border-radius: 50%;
     }
     
-    // Lo stato hover attiva la rotazione
     &:hover .flip-card-inner {
         transform: rotateY(180deg);
     }
 
-    // Parte anteriore e posteriore (inizialmente una sopra l'altra)
     .flip-card-front, .flip-card-back {
         position: absolute;
         width: 100%;
         height: 100%;
-        -webkit-backface-visibility: hidden; /* Nasconde il retro durante la rotazione */
+        -webkit-backface-visibility: hidden; 
         backface-visibility: hidden;
         border-radius: 50%;
     }
 
-    // Stile per l'immagine frontale
     .flip-card-front {
         background-color: transparent;
-        // Assicura che l'immagine occupi lo spazio e sia tonda
         img {
             width: 100%;
             height: 100%;
@@ -405,10 +356,9 @@ a {
 
     // Stile per la parte posteriore (il logo)
     .flip-card-back {
-        // Usa il tuo colore primario per lo sfondo del retro
         background-color: $primary-blue; 
         color: white;
-        transform: rotateY(180deg); // Inizialmente ruotato di 180° (nascosto)
+        transform: rotateY(180deg); 
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -471,7 +421,7 @@ a {
         resize: vertical; 
     }
     
-    // ... (Mantieni il blocco .social-link qui sotto)
+
 }
 
 
@@ -481,7 +431,7 @@ a {
 // NUOVI STILI PER MESSAGGIO DI FEEDBACK POST-INVIO
 // ===============================================
 
-// Stile generale del contenitore del messaggio di successo
+
 .feedback-success {
     // Colori basati sul tuo Primary Blue
     background-color: lighten($primary-blue, 50%);
@@ -501,84 +451,11 @@ a {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-// Stato Attivo: Aggiunto dal JavaScript per avviare l'animazione
 .feedback-success.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-
-// ===============================================
-// TEMA SCURO (DARK MODE)
-// ===============================================
-
-body.dark-mode {
-    background-color: $dark-bg;
-    color: $dark-text;
-    
-    // Inverti i colori principali
-    section, footer {
-        background-color: $dark-bg !important; 
-        color: $dark-text;
-    }
-    
-    // Inverti i colori di tutti gli elementi Card/Sfondo
-    .card, .modal-content, .offcanvas {
-        background-color: $dark-card-bg !important;
-        color: $dark-text;
-        border-color: $dark-border !important;
-    }
-    
-    // Inverti i colori dei link non primari
-    a {
-        color: $light-text; // Rende i link più visibili
-        &:hover {
-            color: $accent-orange;
-        }
-    }
-    
-    // Inverti i colori dei form control (input)
-    .form-control {
-        background-color: $dark-bg;
-        color: $dark-text;
-        border-color: $dark-border;
-        
-        &:focus {
-             // Mantieni l'animazione focus, ma con colori dark-friendly
-            border-color: lighten($primary-blue, 20%) !important; 
-            box-shadow: 0 0 0 0.25rem rgba(lighten($primary-blue, 20%), 0.25) !important;
-        }
-    }
-}
-
-
-
-
-/* ===============================================
-ANIMAZIONE HERO SECTION (LOAD-IN)
-=============================================== */
-
-#hero-text-container [class^="reveal-item-"] {
-    /* 1. Stato Iniziale: Nascosto e spostato leggermente in alto */
-    opacity: 0;
-    transform: translateY(20px); 
-    
-    /* 2. Transizione (Fluidità): Tempo di animazione comune a tutti gli elementi */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Stato finale (attivato quando il container riceve la classe 'is-loaded') */
-#hero-text-container.is-loaded [class^="reveal-item-"] {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Ritardo sfalsato (Staggered delay) */
-#hero-text-container.is-loaded .reveal-item-1 { transition-delay: 0.2s; } 
-#hero-text-container.is-loaded .reveal-item-2 { transition-delay: 0.3s; } 
-#hero-text-container.is-loaded .reveal-item-3 { transition-delay: 0.4s; } 
-#hero-text-container.is-loaded .reveal-item-4 { transition-delay: 0.5s; } 
-#hero-text-container.is-loaded .reveal-item-5 { transition-delay: 0.6s; }
 
 
 

@@ -7,13 +7,13 @@
 // Colori Standard (Light Mode)
 $primary-blue: #08325C;
 $accent-orange: #FF6600;
-$light-bg: #f8f9fa; // Background per light mode
-$light-text: #333333; // Testo per light mode
-$light-card-bg: #ffffff; // Sfondo delle card per light mode
+$text-dark: #333333; // Colore testo scuro
+$text-light: #f8f9fa; // Colore testo chiaro
 
 
 // Font per l'intero body. Bootstrap eredita dal body.
 $font-family-serif: 'Lora', serif;
+
 
 // 2. CUSTOMIZZAZIONE DI BOOTSTRAP (Override delle variabili)
 
@@ -455,7 +455,6 @@ a {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 
 
